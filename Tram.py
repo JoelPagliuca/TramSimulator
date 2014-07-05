@@ -82,7 +82,7 @@ class Tram:
         '''
         returns the index of the next available seat
         
-        @return: integer - number of seat, None if no available seat
+        @return: number of seat, None if no available seat
         '''
         try:
             seat = self.seats.index('#') #returns the index of the first '#'
@@ -90,7 +90,11 @@ class Tram:
         except:
             return None
     
-    
+    def hasAvailableSeat(self):
+        '''
+        @rtype: boolean
+        '''
+        return bool(self.getNextSeat())
     
     ########## ##### ##########
     

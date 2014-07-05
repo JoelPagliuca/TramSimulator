@@ -16,14 +16,17 @@ class Person:
     PROPERTIES:
         name - the name of the person
         tram - the tram the person is on
-        station - the station the person is at
+        seat - the seat the person is sitting on
+        location - either the stop of the tram or a Location
     
     METHODS:
         __init__
+        boardTram
+        leaveTram
+    
+    OVERLOADS:
         __bool__
         __str__
-        boardTram
-    
     '''
 
 
@@ -33,20 +36,14 @@ class Person:
         '''
         self.name = name
         self.tram = None
-        self.station = None
-        self. seat = None
-    
-    ########## GET METHODS ##########
-    
+        self.seat = None
+        self.location = None
+        
     def getName(self):
         '''
         returns the name
         '''
         return self.name
-    
-    ########## ##### ##########
-    
-    ########## OVERLOADS ##########
     
     def __str__(self):
         '''
@@ -60,13 +57,14 @@ class Person:
         '''
         return True
     
-    ########## ##### ##########
-    
-    ########## METHODS ##########
-
     def boardTram(self, tram):
         '''
         puts the person on the tram
+        
+        @param tram: Tram
+        @precondition: 1 tram must be a Tram
+                       2 tram must have open doors
+                       3 tram must have at least 1 available seat
         '''
         ermsg = '{} could not board tram'.format(self.name)
         if tram.doorsOpen():
