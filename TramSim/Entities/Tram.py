@@ -14,7 +14,7 @@ class Tram:
         seats - list - contains the passengers
         doorStatus - boolean - True if doors are closed
         loop - the loop the train is on
-        currentStation - the numeric value of the station
+        TODO: currentStop - the numeric value of the station
     
     METHODS:
         __init__
@@ -39,7 +39,7 @@ class Tram:
         self.doorStatus = True
         
         self.loop = ['Hell', 'Nigeria', 'Soviet Russia', 'USA']
-        self.currentStation = 0
+        self.currentStop = 0
     
     ########## OVERLOADS ##########
     
@@ -59,9 +59,7 @@ class Tram:
  \\\\   |{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|{}     {}|{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|   // 
   \\\\================================={doors}{doors}{doors}=====================================//  """.format(*self.seats,doors = doors)
         return output
-    
-    __repr__ = __str__
-    
+        
     def __bool__(self):
         '''
         '''
@@ -69,7 +67,7 @@ class Tram:
     
     ########## ##### ##########
     
-    ########## GET METHODS ##########
+    ########## QUERIES ##########
     
     def getCurrentStation(self):
         '''
@@ -77,7 +75,7 @@ class Tram:
         
         @return: string - name of station
         '''
-        return self.loop[self.currentStation]
+        return self.loop[self.currentStop]
     
     def getNextSeat(self):
         '''
@@ -96,6 +94,12 @@ class Tram:
         @rtype: boolean
         '''
         return bool(self.getNextSeat())
+    
+    def isTakingPassengers(self):
+        '''
+        checks if passengers can be taken
+        '''
+        return self.hasAvailableSeat() and self.doorsOpen()
     
     ########## ##### ##########
     
@@ -122,7 +126,7 @@ class Tram:
         '''
         changes the station the tram is at
         '''
-        self.currentStation = (self.currentStation + 1) % len(self.loop)
+        self.currentStop = (self.currentStop + 1) % len(self.loop)
     
     def seatPassenger(self, passenger, seat):
         '''

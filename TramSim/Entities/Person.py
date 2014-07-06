@@ -3,8 +3,7 @@ Created on 08/03/2014
 
 @author: Joel
 '''
-
-import unittest
+from TramSim.Entities import Tram
 
 class Person:
     '''
@@ -20,9 +19,9 @@ class Person:
         actions - actions this entity is capable of performing
     
     METHODS:
-        __init__
         boardTram
         leaveTram
+        getLocation
     
     OVERLOADS:
         __bool__
@@ -51,8 +50,6 @@ class Person:
         '''
         return "O"
         
-    __repr__ = __str__
-    
     def __bool__(self):
         '''
         '''
@@ -64,50 +61,56 @@ class Person:
         
         @param tram: Tram
         @precondition: 1 tram must be a Tram
-                       2 tram must have open doors
-                       3 tram must have at least 1 available seat
+                       2 tram must be able to take passengers
         '''
-        ermsg = '{} could not board tram'.format(self.name)
-        if tram.doorsOpen():
-            seat = tram.getNextSeat()
-            
-            if seat:
-                self.tram = tram
-                self.seat = seat
-                self.tram.seatPassenger(self, self.seat)
-            else:
-                print(ermsg)
-        else:
-            print(ermsg)
+        # START PRECONDITIONS
+        # 1
+        if not isinstance(tram, Tram):
+            raise ValueError("tram must be a Tram")
+        # 2
+        if not tram.isTakingPassengers():
+            raise AttributeError("tram must be able to take passengers")
+        # END PRECONDITIONS
+        seat = tram.getNextSeat()
+        self.tram = tram
+        self.seat = seat
+        self.tram.seatPassenger(self, self.seat)
     
     def leaveTram(self):
         '''
+        @precondition: 1 Person must be in a tram
+                       2 tram must have open doors
         '''
-        if self.tram and self.tram.doorsOpen():
-            self.tram.clearSeat(self.seat)
-            self.tram = None
-            self.seat = None
+        # START PRECONDITIONS
+        # 1
+        if self.tram == None:
+            raise ValueError("Person must have a Tram set")
+        # 2
+        if not self.tram.doorsOpen():
+            raise AttributeError("tram must have open doors")
+        # END PRECONDITIONS
+        self.tram.clearSeat(self.seat)
+        self.tram = None
+        self.seat = None
+    
+    def getLocation(self):
+        '''
+        either gets the Stop of the tram or the location
+        
+        @rtype: Location or None
+        '''
+        if self.tram:
+            return self.tram.getCurrentStop()
         else:
-            print('Could not leave tram')
+            return self.location
     
-    ########## ##### ##########
-
-########## TESTS ##########
-
-class TestClassStudentValid(unittest.TestCase):
-    '''
-    '''
-    
-    def setUp(self):
-        self.person1 = Person("Nigga")
-    
-    def test_getMethods(self):
+    def addAction(self, action):
         '''
-        test the get methods
+        @param action: Action
         '''
-        self.assertEqual(self.person1.getName(), "Nigga")
-
+        self.actions.append(action)
+            
 ########## ##### ##########
 
 if __name__ == '__main__':
-    unittest.main()
+    pass
