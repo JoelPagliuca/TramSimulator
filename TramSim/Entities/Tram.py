@@ -30,7 +30,7 @@ class Tram:
     CAPACITY = 128
 
 
-    def __init__(self):
+    def __init__(self, loop, stop):
         '''
         Constructor
         '''
@@ -38,8 +38,8 @@ class Tram:
         
         self.doorStatus = True
         
-        self.loop = ['Hell', 'Nigeria', 'Soviet Russia', 'USA']
-        self.currentStop = 0
+        self.loop = loop
+        self.currentStop = stop
     
     ########## OVERLOADS ##########
     
