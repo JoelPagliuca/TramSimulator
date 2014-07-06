@@ -5,7 +5,6 @@ Created on 08/03/2014
 '''
 
 import unittest
-from Tram import Tram
 
 class Person:
     '''
@@ -17,7 +16,8 @@ class Person:
         name - the name of the person
         tram - the tram the person is on
         seat - the seat the person is sitting on
-        location - either the stop of the tram or a Location
+        location - either the stop of the tram or a Locations
+        actions - actions this entity is capable of performing
     
     METHODS:
         __init__
@@ -38,6 +38,7 @@ class Person:
         self.tram = None
         self.seat = None
         self.location = None
+        self.actions = []
         
     def getName(self):
         '''

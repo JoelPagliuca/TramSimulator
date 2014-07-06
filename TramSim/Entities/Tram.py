@@ -27,13 +27,14 @@ class Tram:
         getNextSeat
     
     '''
+    CAPACITY = 128
 
 
-    def __init__(self, capacity = 128):
+    def __init__(self):
         '''
         Constructor
         '''
-        self.seats = ['#']*capacity
+        self.seats = ['#']*self.CAPACITY
         
         self.doorStatus = True
         
