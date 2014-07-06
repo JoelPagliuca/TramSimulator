@@ -3,17 +3,21 @@ Created on 09/03/2014
 
 @author: Joel
 '''
+from TramSim.Locations import Location
+from TramSim.Entities import Tram
 
-class Stop:
+class Stop(Location):
     '''
     Stop
     
     representation of a tram stop
     
     PROPERTIES:
-        
+        tram
+    
     METHODS:
-        
+        getTram
+        setTram
     
     '''
 
@@ -22,20 +26,9 @@ class Stop:
         '''
         Constructor
         '''
-        self.name = name
+        super().__init__(name)
         self.tram = None
-    
-    ########## OVERLOADS ##########
-    
-    def __bool__(self):
-        '''
-        '''
-        return True
-    
-    ########## ##### ##########
-    
-    ########## GET METHODS ##########
-    
+        
     def getTram(self):
         '''
         '''
@@ -43,16 +36,11 @@ class Stop:
     
     def setTram(self, tram):
         '''
+        @param tram: Tram
         '''
         self.tram = tram
     
-    ########## ##### ##########
-    
-    ########## METHODS ##########
-    
-    
-    
-    ########## ##### ##########
+########## ##### ##########
 
 if __name__ == '__main__':
     pass

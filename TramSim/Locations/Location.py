@@ -1,12 +1,21 @@
 '''
 Created on 06/07/2014
 
-@author: owner
+@author: Joel Pagliuca
 '''
 
 class Location(object):
     '''
-    Locations
+    Location
+    
+    PROPERTIES:
+        name
+    
+    METHODS:
+        getName
+    
+    OVERRIDES:
+        __bool__
     '''
 
 
@@ -15,3 +24,9 @@ class Location(object):
         Constructor
         '''
         self.name = str(name)
+    
+    def getName(self):
+        return self.name
+    
+    def __bool__(self):
+        return True
