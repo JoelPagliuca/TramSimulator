@@ -14,17 +14,18 @@ class Tram:
         seats - list - contains the passengers
         doorStatus - boolean - True if doors are closed
         loop - the loop the train is on
-        TODO: currentStop - the numeric value of the station
+        stop - the stop the tram is currently at
     
     METHODS:
-        __init__
-        __bool__
-        __str__
         doorsOpen
         openDoors
         closeDoors
         nextStation
         getNextSeat
+    
+    OVERLOADS:
+        __bool__
+        __str__
     
     '''
     CAPACITY = 128
@@ -39,7 +40,8 @@ class Tram:
         self.doorStatus = True
         
         self.loop = loop
-        self.currentStop = stop
+        self.stop = stop
+        self.stop.setTram(self)
     
     ########## OVERLOADS ##########
     
@@ -69,13 +71,12 @@ class Tram:
     
     ########## QUERIES ##########
     
-    def getCurrentStation(self):
+    def getStop(self):
         '''
-        current station as string
-        
-        @return: string - name of station
+        @return: current stop
+        @rtype: Stop
         '''
-        return self.loop[self.currentStop]
+        return self.stop
     
     def getNextSeat(self):
         '''
@@ -126,7 +127,7 @@ class Tram:
         '''
         changes the station the tram is at
         '''
-        self.currentStop = (self.currentStop + 1) % len(self.loop)
+        self.stop = self.loop.getNextStation(self.stop)
     
     def seatPassenger(self, passenger, seat):
         '''

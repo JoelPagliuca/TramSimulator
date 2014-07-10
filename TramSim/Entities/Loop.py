@@ -55,3 +55,19 @@ class Loop:
             raise ValueError('the loop must contain stop')
         # END PRECONDITIONS
         self.stops.remove(stop)
+    
+    def getNextStop(self, stop):
+        '''
+        @param stop: Stop
+        @precondition: 1 stop must be in the loop
+        @rtype: Stop
+        '''
+        # START PRECONDITIONS
+        # 1
+        if not stop in self.getStops():
+            raise ValueError("stop must be in the loop")
+        # END PRECONDITIONS
+        stops = self.getStops()
+        index = stops.index(stop)
+        index = (index + 1) % len(stops)
+        return stops[index]
