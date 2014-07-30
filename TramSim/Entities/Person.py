@@ -3,7 +3,6 @@ Created on 08/03/2014
 
 @author: Joel
 '''
-from TramSim.Entities import Tram
 
 class Person:
     '''
@@ -56,6 +55,7 @@ class Person:
         return True
     
     def boardTram(self, tram):
+        from TramSim.Entities import Tram
         '''
         puts the person on the tram
         

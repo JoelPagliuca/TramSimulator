@@ -3,6 +3,8 @@ Created on 08/03/2014
 
 @author: Joel
 '''
+from TramSim.Entities import Loop, Person
+from TramSim.Locations import Stop
 
 class Tram:
     '''
@@ -32,8 +34,11 @@ class Tram:
 
 
     def __init__(self, loop, stop):
-        '''
+        ''' TODO: stop has to be on loop
         Constructor
+        
+        @param loop: Loop
+        @param stop: Stop
         '''
         self.seats = ['#']*self.CAPACITY
         
@@ -146,7 +151,24 @@ class Tram:
         '''
         self.seats[seat] = '#'
     
-    ########## ##### ##########
+########## Tests ##########
+
+def test_1():
+    print("##### TEST_1 #####")
+    l = Loop("Test loop")
+    s = Stop('Nigeria')
+    l.addStop(s)
+    tram = Tram(l, s)
+    tram.openDoors()
+    tram.seats[6] = 'O'
+    print(tram)
+    print()
+
+def tests():
+    test_1()
+    print("##### DONE #####")
+
+########## ##### ##########
 
 if __name__ == '__main__':
-    pass
+    tests()
