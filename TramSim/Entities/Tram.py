@@ -22,7 +22,7 @@ class Tram:
         doorsOpen
         openDoors
         closeDoors
-        nextStation
+        nextStop
         getNextSeat
     
     OVERLOADS:
@@ -99,7 +99,7 @@ class Tram:
         '''
         @rtype: boolean
         '''
-        return bool(self.getNextSeat())
+        return not self.getNextSeat() is None
     
     def isTakingPassengers(self):
         '''
@@ -128,11 +128,11 @@ class Tram:
         '''
         self.doorStatus = True
     
-    def nextStation(self):
+    def nextStop(self):
         '''
         changes the station the tram is at
         '''
-        self.stop = self.loop.getNextStation(self.stop)
+        self.stop = self.loop.getNextStop(self.stop)
     
     def seatPassenger(self, passenger, seat):
         '''
@@ -152,20 +152,51 @@ class Tram:
         self.seats[seat] = '#'
     
 ########## Tests ##########
+def makeTestTram():
+    l = Loop("Test loop")
+    s1 = Stop('Nigeria')
+    s2 = Stop('Serbia')
+    l.addStop(s1)
+    l.addStop(s2)
+    tram = Tram(l, s1)
+    return tram
 
 def test_1():
-    print("##### TEST_1 #####")
-    l = Loop("Test loop")
-    s = Stop('Nigeria')
-    l.addStop(s)
-    tram = Tram(l, s)
+    print("##### SIMPLE TESTS #####")
+    tram = makeTestTram()
+    print("stop:", tram.getStop().getName())
+    print("next seat:", tram.getNextSeat())
+
+def test_hasAvailableSeat():
+    print("##### HASAVAILABLESEAT #####")
+    tram = makeTestTram()
+    print("with available seat:", tram.hasAvailableSeat())
+    tram.seats = ['O', 'O']
+    print("without available seat:", tram.hasAvailableSeat())
+
+def test_isTakingPassengers():
+    print("##### HASAVAILABLESEAT #####")
+    tram = makeTestTram()
     tram.openDoors()
-    tram.seats[6] = 'O'
-    print(tram)
-    print()
+    print("seat, no doors:", tram.isTakingPassengers())
+    tram.closeDoors()
+    print("seat, doors:", tram.isTakingPassengers())
+    tram.openDoors()
+    tram.seats = []
+    print("no seat, no doors:", tram.isTakingPassengers())
+
+def test_nextStop():
+    print("##### NEXTSTOP #####")
+    tram = makeTestTram()
+    print("stop:", tram.getStop().getName())
+    tram.nextStop()
+    print("next stop:", tram.getStop().getName())
 
 def tests():
     test_1()
+    test_hasAvailableSeat()
+    test_isTakingPassengers()
+    test_nextStop()
     print("##### DONE #####")
 
 ########## ##### ##########
