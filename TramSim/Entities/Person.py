@@ -89,6 +89,7 @@ class Person:
         if not self.tram.doorsOpen():
             raise AttributeError("tram must have open doors")
         # END PRECONDITIONS
+        self.setLocation(self.tram.getStop())
         self.tram.clearSeat(self.seat)
         self.tram = None
         self.seat = None
@@ -104,13 +105,70 @@ class Person:
         else:
             return self.location
     
+    def setLocation(self, l):
+        '''
+        @param l: Location
+        '''
+        self.location = l
+    
     def addAction(self, action):
         '''
         @param action: Action
         '''
         self.actions.append(action)
+    
+    def description(self):
+        '''
+        a short description of the Person
+        
+        @rtype: str
+        '''
+        loc = self.location
+        if loc:
+            loc = loc.getName()
+        output = "{0} - seat: {1}, location: {2}".format(self.name, self.seat, loc)
+        return output
             
+########## Tests ##########
+
+def test_tramFunctionality():
+    from TramSim.Entities import Tram, Loop
+    from TramSim.Locations import Stop
+    print("##### TRAM FUNCTIONALITY #####")
+    s1 = Stop('Nigeria')
+    s2 = Stop('Serbia')
+    l = Loop('test loop')
+    l.addStop(s1)
+    l.addStop(s2)    
+    t = Tram(l, s1)
+    p = Person('Test Person')
+    p.setLocation(s1)
+    print(p.description())
+    
+    print("##### BOARDING AND LEAVING")
+    t.openDoors()
+    p.boardTram(t)
+    print("BOARDING")
+    print(p.description())
+    print(t)
+    p.leaveTram()
+    print("LEAVING")
+    print(p.description())
+    print(t)
+    
+    print("##### MOVING")
+    p.boardTram(t)
+    t.closeDoors()
+    t.nextStop()
+    t.openDoors()
+    p.leaveTram()
+    print(p.description())
+
+def tests():
+    test_tramFunctionality()
+    print("##### DONE #####")
+
 ########## ##### ##########
 
 if __name__ == '__main__':
-    pass
+    tests()

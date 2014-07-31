@@ -152,6 +152,7 @@ class Tram:
         self.seats[seat] = '#'
     
 ########## Tests ##########
+
 def makeTestTram():
     l = Loop("Test loop")
     s1 = Stop('Nigeria')
