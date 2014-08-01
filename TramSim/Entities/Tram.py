@@ -24,6 +24,9 @@ class Tram:
         closeDoors
         nextStop
         getNextSeat
+        getStop
+        getNextSeat
+        hasAvailableSeat
     
     OVERLOADS:
         __bool__

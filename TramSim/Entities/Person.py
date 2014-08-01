@@ -136,7 +136,7 @@ def test_tramFunctionality():
     from TramSim.Locations import Stop
     print("##### TRAM FUNCTIONALITY #####")
     s1 = Stop('Nigeria')
-    s2 = Stop('Serbia')
+    s2 = Stop('Serbja')
     l = Loop('test loop')
     l.addStop(s1)
     l.addStop(s2)    
