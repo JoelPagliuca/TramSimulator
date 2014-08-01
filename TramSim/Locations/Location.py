@@ -30,3 +30,9 @@ class Location(object):
     
     def __bool__(self):
         return True
+    
+    def getSymbol(self):
+        '''
+        - marks the spot
+        '''
+        return '-'
