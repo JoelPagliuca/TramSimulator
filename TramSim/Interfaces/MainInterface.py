@@ -8,11 +8,17 @@ from TramSim.Interfaces import TextInterface
 class MainInterface(TextInterface):
     '''
     The main simulation interface
-    '''
-
-
-    def __init__(self):
-        '''
-        Constructor
-        '''
+    
+    METHODS:
         
+    
+    OVERRIDES:
+        setFunctions
+    
+    '''
+    
+    # OVERRIDE
+    def setFunctions(self):
+        '''
+        '''
+        self.setFunction("exit", self.uiExit)

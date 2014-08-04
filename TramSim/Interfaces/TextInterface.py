@@ -11,6 +11,7 @@ class TextInterface:
     
     METHODS:
         setFunctions
+        setFunction
         tick
         uiHelp
         uiExit
@@ -52,16 +53,26 @@ class TextInterface:
         this sets all the functions and their mappings, descriptions and parameters
         '''
         # uiHelp
-        func = "help"
-        self.MAP[func] = self.uiHelp
-        self.DESCRIPTION[func] = "Display all the commands"
+        self.setFunction("help", self.uiHelp, "Display all the commands")
         # uiExample
-        func = "example"
-        self.MAP[func] = self.uiExample
-        self.PARAMETERS[func] = ['p1', 'p2']
+        self.setFunction("example", self.uiExample, None, ['p1', 'p2'])
         # uiExit
-        func = "exit"
-        self.MAP[func] = self.uiExit
+        self.setFunction("exit", self.uiExit)
+    
+    def setFunction(self, name, func, desc=None, params=None):
+        '''
+        realized I was a bad software engineer
+        '''
+        self.MAP[name] = func
+        
+        if params:
+            paramList = []
+            for param in params:
+                paramList.append(param)
+            self.PARAMETERS[name] = paramList
+        
+        if desc:
+            self.DESCRIPTION[name] = desc
         
     def uiHelp(self, args=None):
         '''
