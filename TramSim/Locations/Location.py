@@ -24,6 +24,7 @@ class Location(object):
         Constructor
         '''
         self.name = str(name)
+        self.symbol = '-'
     
     def getName(self):
         return self.name
@@ -35,4 +36,7 @@ class Location(object):
         '''
         - marks the spot
         '''
-        return '-'
+        return self.symbol
+    
+    def setSymbol(self, s):
+        self.symbol = s
