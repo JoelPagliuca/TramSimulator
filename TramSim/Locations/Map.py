@@ -61,7 +61,7 @@ class Map:
         if not isinstance(loc, Location):
             raise ValueError("loc was not Location")
         # END TYPE CHECKING
-        self.grid[locx][locy] = loc
+        self.grid[locy][locx] = loc
 
 ########## Tests ##########
 
