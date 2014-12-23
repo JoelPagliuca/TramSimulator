@@ -1,6 +1,3 @@
 .project
 .pydevproject
-TramSim/__pycache__
-TramSim/Entities/__pycache__
-TramSim/Interfaces/__pycache__
-TramSim/Locations/__pycache__
+*.pyc

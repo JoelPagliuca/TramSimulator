@@ -4,6 +4,7 @@ Created on 09/03/2014
 @author: Joel
 '''
 from TramSim.Locations import Stop
+import unittest
 
 class Loop:
     '''
@@ -57,7 +58,7 @@ class Loop:
         # END PRECONDITIONS
         self.stops.remove(stop)
     
-    def getNextStop(self, stop):
+    def nextStop(self, stop):
         '''
         @param stop: Stop
         @precondition: 1 stop must be in the loop
@@ -86,6 +87,35 @@ class Loop:
         return output
 
 ########## Tests ##########
+
+class TestLoopFunctions(unittest.TestCase):
+    
+    def setUp(self):
+        self.loop = Loop("Test Loop")
+        self.s1 = Stop('Nigeria')
+        self.s2 = Stop('Brazil')
+    
+    def test_addStop(self):
+        # addStop should add the stop to the list of stops
+        self.loop.addStop(self.s1)
+        self.assertEqual(self.loop.stops[-1], self.s1)
+        
+        self.loop.addStop(self.s2)
+        self.assertEqual(self.loop.stops[-1], self.s2)
+    
+    def test_removeStop(self):
+        # removeStop should remove the stop from the list or throw an exception if it isn't there
+        self.loop.addStop(self.s1)
+        self.loop.removeStop(self.s1)
+        self.assertTrue(not self.s1 in self.loop.stops)
+        
+        self.assertRaises(ValueError, self.loop.removeStop, self.s2)
+    
+    def test_getNextStop(self):
+        self.loop.addStop(self.s1)
+        self.loop.addStop(self.s2)
+        self.assertEqual(self.loop.nextStop(self.s1), self.s2)
+        self.assertEqual(self.loop.nextStop(self.s2), self.s1)
 
 def test_1():
     print("##### ADDSTOP #####")
@@ -118,7 +148,7 @@ def test_3():
     s = s1
     print(l.getDescription())
     for _ in range(3):
-        sNext = l.getNextStop(s)
+        sNext = l.nextStop(s)
         print("{0} -> {1}".format(s.getName(), sNext.getName()))
         s = sNext
 
@@ -131,4 +161,4 @@ def tests():
 ########## ##### ##########
 
 if __name__ == '__main__':
-    tests()
+    unittest.main()

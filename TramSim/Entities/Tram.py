@@ -135,7 +135,7 @@ class Tram:
         '''
         changes the station the tram is at
         '''
-        self.stop = self.loop.getNextStop(self.stop)
+        self.stop = self.loop.nextStop(self.stop)
     
     def seatPassenger(self, passenger, seat):
         '''
