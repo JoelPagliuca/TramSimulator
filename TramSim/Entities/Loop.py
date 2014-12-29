@@ -111,52 +111,12 @@ class TestLoopFunctions(unittest.TestCase):
         
         self.assertRaises(ValueError, self.loop.removeStop, self.s2)
     
-    def test_getNextStop(self):
+    def test_nextStop(self):
         self.loop.addStop(self.s1)
         self.loop.addStop(self.s2)
         self.assertEqual(self.loop.nextStop(self.s1), self.s2)
         self.assertEqual(self.loop.nextStop(self.s2), self.s1)
 
-def test_1():
-    print("##### ADDSTOP #####")
-    l = Loop("Test loop")
-    def disp(s):
-        l.addStop(s)
-        print(l.getDescription())
-    disp(Stop('Nigeria'))
-    disp(Stop('Austria'))
-    disp(Stop('Argentina'))
-
-def test_2():
-    print("##### REMOVESTOP #####")
-    l = Loop("Test loop")
-    s = Stop('Nigeria')
-    l.addStop(s)
-    print(l.getDescription())
-    l.removeStop(s)
-    print(l.getDescription())
-
-def test_3():
-    print("##### NEXTSTOP #####")
-    l = Loop("Test loop")
-    s1 = Stop('Nigeria')
-    s2 = Stop('Austria')
-    s3 = Stop('Argentina')
-    l.addStop(s1)
-    l.addStop(s2)
-    l.addStop(s3)
-    s = s1
-    print(l.getDescription())
-    for _ in range(3):
-        sNext = l.nextStop(s)
-        print("{0} -> {1}".format(s.getName(), sNext.getName()))
-        s = sNext
-
-def tests():
-    test_1()
-    test_2()
-    test_3()
-    print("##### DONE #####")
 
 ########## ##### ##########
 

@@ -3,6 +3,8 @@ Created on 08/03/2014
 
 @author: Joel
 '''
+import unittest
+
 from TramSim.Entities import Loop, Person
 from TramSim.Locations import Stop
 
@@ -141,7 +143,7 @@ class Tram:
         '''
         puts the passenger in the seat
         
-        @param passenger: the passenger
+        @param passenger: Person
         @param seat: integer - the seat number
         '''
         self.seats[seat] = passenger
@@ -150,60 +152,47 @@ class Tram:
         '''
         empties the seat
         
-        @param seat: integer - seat number
+        @param seat: int
         '''
         self.seats[seat] = '#'
     
 ########## Tests ##########
 
-def makeTestTram():
-    l = Loop("Test loop")
-    s1 = Stop('Nigeria')
-    s2 = Stop('Serbia')
-    l.addStop(s1)
-    l.addStop(s2)
-    tram = Tram(l, s1)
-    return tram
-
-def test_1():
-    print("##### SIMPLE TESTS #####")
-    tram = makeTestTram()
-    print("stop:", tram.getStop().getName())
-    print("next seat:", tram.getNextSeat())
-
-def test_hasAvailableSeat():
-    print("##### HASAVAILABLESEAT #####")
-    tram = makeTestTram()
-    print("with available seat:", tram.hasAvailableSeat())
-    tram.seats = ['O', 'O']
-    print("without available seat:", tram.hasAvailableSeat())
-
-def test_isTakingPassengers():
-    print("##### HASAVAILABLESEAT #####")
-    tram = makeTestTram()
-    tram.openDoors()
-    print("seat, no doors:", tram.isTakingPassengers())
-    tram.closeDoors()
-    print("seat, doors:", tram.isTakingPassengers())
-    tram.openDoors()
-    tram.seats = []
-    print("no seat, no doors:", tram.isTakingPassengers())
-
-def test_nextStop():
-    print("##### NEXTSTOP #####")
-    tram = makeTestTram()
-    print("stop:", tram.getStop().getName())
-    tram.nextStop()
-    print("next stop:", tram.getStop().getName())
-
-def tests():
-    test_1()
-    test_hasAvailableSeat()
-    test_isTakingPassengers()
-    test_nextStop()
-    print("##### DONE #####")
+class TestTramFunctionality(unittest.TestCase):
+    
+    def setUp(self):
+        self.loop = Loop("Test loop")
+        s1 = Stop('Nigeria')
+        s2 = Stop('Serbia')
+        self.loop.addStop(s1)
+        self.loop.addStop(s2)
+        self.tram = Tram(self.loop, s1)
+    
+    def test_simpleFunctions(self):
+        # getStop getNextSeat
+        self.assertEqual(self.tram.getStop().getName(), 'Nigeria')
+        self.assertEqual(self.tram.getNextSeat(), 0)
+    
+    def test_hasAvailableSeat(self):
+        self.assertTrue(self.tram.hasAvailableSeat())
+        # simulate a full tram
+        self.tram.seats = ['O', 'O']
+        self.assertFalse(self.tram.hasAvailableSeat())
+    
+    def test_doorFunctionality(self):
+        self.tram.openDoors()
+        self.assertTrue(self.tram.doorsOpen())
+        self.tram.closeDoors()
+        self.assertFalse(self.tram.doorsOpen())
+    
+    def test_nextStop(self):
+        self.assertEqual(self.tram.stop, self.loop.getStops()[0])
+        self.tram.nextStop()
+        self.assertEqual(self.tram.stop, self.loop.getStops()[1])
+        self.tram.nextStop()
+        self.assertEqual(self.tram.stop, self.loop.getStops()[0])
 
 ########## ##### ##########
 
 if __name__ == '__main__':
-    tests()
+    unittest.main()
