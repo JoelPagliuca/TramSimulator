@@ -5,7 +5,7 @@ Created on 29/12/2014
 '''
 import unittest
 
-from TramSim.Entities import test_loop, test_tram
+from tests.Entities import test_loop, test_tram
 
 suite_loop = unittest.defaultTestLoader.loadTestsFromModule(test_loop)
 suite_tram = unittest.defaultTestLoader.loadTestsFromModule(test_tram)
