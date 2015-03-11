@@ -62,29 +62,3 @@ class Map:
             raise ValueError("loc was not Location")
         # END TYPE CHECKING
         self.grid[locy][locx] = loc
-
-########## Tests ##########
-
-def test_1():
-    print("##### TEST_1 #####")
-    m = Map('Nigeria', 5, 3)
-    print(m)
-
-def test_2():
-    print("##### TEST_2 #####")
-    m = Map('Nigeria', 5, 3)
-    print('adding Serbia')
-    l = Location('Serbia')
-    l.setSymbol('S')
-    m.addLocation(l, 1, 2)
-    print(m)
-
-def tests():
-    test_1()
-    test_2()
-    print("##### DONE #####")
-
-########## ##### ##########
-
-if __name__ == '__main__':
-    tests()
