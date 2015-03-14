@@ -7,9 +7,6 @@ import unittest
 
 from tests.TramSimTest import TramSimTest
 
-from TramSim.Entities import Loop, Tram
-from TramSim.Locations import Stop
-
 class TestTramFunctionality(TramSimTest):
     
     def test_simpleFunctions(self):
