@@ -21,6 +21,7 @@ class TramSimTest(unittest.TestCase):
         
         self.stop1 = Stop('Nigeria')
         self.stop2 = Stop('Brazil')
+        self.stop3 = Stop('Broviet')
         
         self.loop.addStop(self.stop1)
         self.loop.addStop(self.stop2)
