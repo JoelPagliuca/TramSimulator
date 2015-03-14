@@ -5,6 +5,6 @@ Created on 14/03/2015
 '''
 import unittest
 
-tests = unittest.defaultTestLoader.discover("Entities", pattern="test_*.py")
+tests = unittest.defaultTestLoader.discover("Locations", pattern="test_*.py")
 runner = unittest.TextTestRunner()
 runner.run(tests)
