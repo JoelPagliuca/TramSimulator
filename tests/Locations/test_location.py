@@ -4,12 +4,10 @@ Created on 10/03/2015
 @author: Joel Pagliuca
 '''
 import unittest
-from TramSim.Locations import Location
 
-class TestLocation(unittest.TestCase):
-    
-    def setUp(self):
-        self.location = Location("Serbia")
+from tests.TramSimTest import TramSimTest
+
+class TestLocation(TramSimTest):
 
     def test_getSymbol(self):
         self.assertEqual(self.location.symbol, self.location.getSymbol())
