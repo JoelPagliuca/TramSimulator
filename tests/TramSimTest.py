@@ -6,7 +6,7 @@ Created on 13/03/2015
 import unittest
 
 from TramSim.Entities import Loop, Tram
-from TramSim.Locations import Location, Stop
+from TramSim.Locations import Location, Stop, Map
 
 class TramSimTest(unittest.TestCase):
     '''
@@ -28,3 +28,5 @@ class TramSimTest(unittest.TestCase):
         self.tram = Tram(self.loop, self.stop1)
         
         self.location = Location('Serbia')
+        
+        self.map_ = Map('Test Map', 3, 4)

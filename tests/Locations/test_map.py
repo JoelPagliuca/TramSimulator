@@ -5,13 +5,12 @@ Created on 11/03/2015
 '''
 import unittest
 
-from TramSim.Locations import Map, Location
+from tests.TramSimTest import TramSimTest
+
+from TramSim.Locations import Location
 
 
-class TestMap(unittest.TestCase):
-    
-    def setUp(self):
-        self.map_ = Map('Test Map', 3, 4)
+class TestMap(TramSimTest):
 
     def test_constructor(self):
         self.assertEqual(len(self.map_.grid[0]), 3)
