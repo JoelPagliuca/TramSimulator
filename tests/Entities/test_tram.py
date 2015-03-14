@@ -27,11 +27,11 @@ class TestTramFunctionality(TramSimTest):
         self.assertFalse(self.tram.doorsOpen())
     
     def test_nextStop(self):
-        self.assertEqual(self.tram.stop, self.loop.getStops()[0])
+        self.assertEqual(self.tram.stop1, self.loop.getStops()[0])
         self.tram.nextStop()
-        self.assertEqual(self.tram.stop, self.loop.getStops()[1])
+        self.assertEqual(self.tram.stop1, self.loop.getStops()[1])
         self.tram.nextStop()
-        self.assertEqual(self.tram.stop, self.loop.getStops()[0])
+        self.assertEqual(self.tram.stop1, self.loop.getStops()[0])
 
 if __name__ == "__main__":
     unittest.main()
