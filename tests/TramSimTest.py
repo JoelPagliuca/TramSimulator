@@ -5,7 +5,7 @@ Created on 13/03/2015
 '''
 import unittest
 
-from TramSim.Entities import Loop
+from TramSim.Entities import Loop, Tram
 from TramSim.Locations import Stop
 
 class TramSimTest(unittest.TestCase):
@@ -21,3 +21,8 @@ class TramSimTest(unittest.TestCase):
         
         self.stop1 = Stop('Nigeria')
         self.stop2 = Stop('Brazil')
+        
+        self.loop.addStop(self.stop1)
+        self.loop.addStop(self.stop2)
+        
+        self.tram = Tram(self.loop, self.stop1)

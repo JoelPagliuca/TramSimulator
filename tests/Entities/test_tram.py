@@ -5,18 +5,12 @@ Created on 29/12/2014
 '''
 import unittest
 
+from tests.TramSimTest import TramSimTest
+
 from TramSim.Entities import Loop, Tram
 from TramSim.Locations import Stop
 
-class TestTramFunctionality(unittest.TestCase):
-    
-    def setUp(self):
-        self.loop = Loop("Test loop")
-        s1 = Stop('Nigeria')
-        s2 = Stop('Serbia')
-        self.loop.addStop(s1)
-        self.loop.addStop(s2)
-        self.tram = Tram(self.loop, s1)
+class TestTramFunctionality(TramSimTest):
     
     def test_simpleFunctions(self):
         # getStop getNextSeat
