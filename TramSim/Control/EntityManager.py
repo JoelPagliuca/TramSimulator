@@ -1,10 +1,10 @@
 '''
 Created on 16/03/2015
 
-@author: owner
+@author: Joel Pagliuca
 '''
 
-class EntityManager(object):
+class EntityManager:
     '''
     Will be controlling most of the Entities
     '''
