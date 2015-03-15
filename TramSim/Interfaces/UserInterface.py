@@ -11,5 +11,5 @@ class UserInterface:
     '''
 
 
-    def render(self):
+    def render(self, obj):
         raise NotImplementedError("UserInterface: Abstract method render not defined")

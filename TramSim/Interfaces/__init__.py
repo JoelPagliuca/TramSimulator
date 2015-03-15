@@ -1,4 +1,4 @@
-__all__ = ['TextInterface','MainInterface']
+__all__ = ['UserInterface', 'TextInterface']
 
+from TramSim.Interfaces.UserInterface import UserInterface
 from TramSim.Interfaces.TextInterface import TextInterface
-from TramSim.Interfaces.MainInterface import MainInterface
