@@ -1,10 +1,8 @@
 '''
 Created on 04/08/2014
 
-@author: owner
+@author: Joel Pagliuca
 '''
-from TramSim.Interfaces import MainInterface
 
 if __name__ == '__main__':
-    ui = MainInterface()
-    ui.runInterface()
+    pass
