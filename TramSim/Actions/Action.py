@@ -27,4 +27,13 @@ class Action(object):
         raise NotImplementedError()
     
     def do(self):
+        '''
+        perform the action
+        '''
+        raise NotImplementedError()
+    
+    def getDescription(self):
+        '''
+        gets a description of what the action is
+        '''
         raise NotImplementedError()
