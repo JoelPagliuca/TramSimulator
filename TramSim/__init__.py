@@ -1,3 +1,3 @@
-__all__ = ['Entities', 'Locations', 'Interfaces']
+__all__ = ['Entities', 'Worlds', 'Interfaces']
   
-from TramSim import Entities, Locations, Interfaces
+from TramSim import Entities, Worlds, Interfaces

@@ -1,0 +1,1 @@
+game = None # probably make a decorator for singleton
