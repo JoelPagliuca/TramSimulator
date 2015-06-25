@@ -11,13 +11,7 @@ class Loop:
     representation of a tram loop
     
     PROPERTIES:
-        stops
-    
-    METHODS:
-        addStop
-        getStops
-        removeStop
-    
+        _stops
     '''
 
 
@@ -28,19 +22,19 @@ class Loop:
         @param name: str
         '''
         self.name = str(name)
-        self.stops = []
+        self._stops = []
     
     def addStop(self, stop):
         '''
         @param stop: Stop
         '''
-        self.stops.append(stop)
+        self._stops.append(stop)
     
     def getStops(self):
         '''
         @rtype: list 
         '''
-        return self.stops
+        return self._stops.copy()
     
     def removeStop(self, stop):
         '''

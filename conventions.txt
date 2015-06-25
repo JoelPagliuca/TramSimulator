@@ -1,0 +1,5 @@
+CODING CONVENTIONS
+
+CLASSES
+	PROPERTIES heading in Class comment
+	attributes that are DEFINITELY private begin with an underscore

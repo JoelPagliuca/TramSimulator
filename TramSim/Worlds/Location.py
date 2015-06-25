@@ -12,12 +12,6 @@ class Location(object):
         name
         symbol
         _contents
-    
-    METHODS:
-        getName
-    
-    OVERRIDES:
-        __bool__
     '''
 
 
@@ -34,12 +28,6 @@ class Location(object):
         @rtype: str
         '''
         return self.name
-    
-    def __bool__(self):
-        '''
-        @rtype: bool
-        '''
-        return True
     
     def getSymbol(self):
         '''
@@ -68,7 +56,7 @@ class Location(object):
         removes the entity from the contents
         
         @precondition: ent must be in contents
-        @raise ValueError: ent not in contents 
+        @raise ValueError: ent not in contents
         '''
         # START PRECONDITION
         # 1
@@ -82,9 +70,3 @@ class Location(object):
         @rtype: list
         '''
         return self._contents.copy()
-    
-    def countContents(self):
-        '''
-        @rtype: int
-        '''
-        return len(self._contents)
