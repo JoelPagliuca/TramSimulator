@@ -27,6 +27,12 @@ class Entity(object):
         self._possibleActions = []
         self._playerActions = []
     
+    def getName(self):
+        '''
+        returns the name
+        '''
+        return self.name
+    
     def addPlayerAction(self, action):
         '''
         @param action: Action

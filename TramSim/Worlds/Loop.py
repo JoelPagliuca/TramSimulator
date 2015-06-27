@@ -1,7 +1,7 @@
 '''
 Created on 09/03/2014
 
-@author: Joel
+@author: Joel Pagliuca
 '''
 
 class Loop:
@@ -11,6 +11,7 @@ class Loop:
     representation of a tram loop
     
     PROPERTIES:
+        name
         _stops
     '''
 

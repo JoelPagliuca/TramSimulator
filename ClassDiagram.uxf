@@ -151,8 +151,7 @@ bg=red</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>Tram
-bg=red</panel_attributes>
+    <panel_attributes>Tram</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -163,8 +162,7 @@ bg=red</panel_attributes>
       <w>100</w>
       <h>30</h>
     </coordinates>
-    <panel_attributes>Person
-bg=red</panel_attributes>
+    <panel_attributes>Person</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

@@ -34,8 +34,6 @@ class Tram:
         self.stop = stop
         self.stop.setTram(self)
     
-    ########## OVERLOADS ##########
-    
     def __str__(self):
         '''
         '''
@@ -52,15 +50,6 @@ class Tram:
  \\\\   |{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|{}     {}|{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|{} {}|   // 
   \\\\================================={doors}{doors}{doors}=====================================//  """.format(*self.seats,doors = doors)
         return output
-        
-    def __bool__(self):
-        '''
-        '''
-        return True
-    
-    ########## ##### ##########
-    
-    ########## QUERIES ##########
     
     def getStop(self):
         '''
@@ -92,10 +81,6 @@ class Tram:
         checks if passengers can be taken
         '''
         return self.hasAvailableSeat() and self.doorsOpen()
-    
-    ########## ##### ##########
-    
-    ########## METHODS ##########
     
     def doorsOpen(self):
         '''
