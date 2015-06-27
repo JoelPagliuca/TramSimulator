@@ -1,14 +1,17 @@
 '''
 Created on 16/03/2015
 
-@author: owner
+@author: Joel Pagliuca
 '''
 
 class Action(object):
     '''
-    INTERFACE
+    ABSTRACT
     
     An action an Entity can do
+    
+    PROPERTIES:
+        entity
     '''
 
 

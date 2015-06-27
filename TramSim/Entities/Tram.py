@@ -15,21 +15,6 @@ class Tram:
         doorStatus - boolean - True if doors are closed
         loop - the loop the train is on
         stop - the stop1 the tram is currently at
-    
-    METHODS:
-        doorsOpen
-        openDoors
-        closeDoors
-        nextStop
-        getNextSeat
-        getStop
-        getNextSeat
-        hasAvailableSeat
-    
-    OVERLOADS:
-        __bool__
-        __str__
-    
     '''
     CAPACITY = 128
 
