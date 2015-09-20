@@ -20,3 +20,5 @@ class EntityManager:
         '''
         self._interface = interface
         self._map = map_
+    
+    
