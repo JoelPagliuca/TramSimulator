@@ -90,6 +90,7 @@ class Map:
         
         @param entity: Entity
         @rtype: Location
+                or None
         '''
         for i in range(self.height):
             for j in range(self.width):
