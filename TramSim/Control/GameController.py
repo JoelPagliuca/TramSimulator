@@ -20,8 +20,8 @@ class GameController(object):
         '''
         map_ = Map("Game World", 15, 10)
         self.em = EntityManager(map_)
-        self.scheduler = Scheduler
-        self.interface = TextInterface
+        self.scheduler = Scheduler()
+        self.interface = TextInterface()
     
     def loop(self):
         '''
