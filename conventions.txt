@@ -1,5 +1,27 @@
+==================
 CODING CONVENTIONS
+==================
 
 CLASSES
 	PROPERTIES heading in Class comment
 	attributes that are DEFINITELY private begin with an underscore
+
+===================
+COMMENT CONVENTIONS
+===================
+
+MODULE
+	leave the triple quote comment that Eclipse gens
+
+CLASSES
+	ALWAYS put the triple quote comment immediately under definition
+	leave 2 \n after class comment
+
+METHOD
+	always triple quote comment with appropriate tags
+
+==========
+WHITESPACE
+==========
+
+try not to go past column 80

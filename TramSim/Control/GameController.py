@@ -3,6 +3,9 @@ Created on 28 Sep 2015
 
 @author: Joel Pagliuca
 '''
+from TramSim.Worlds import Map
+from TramSim.Control import EntityManager, Scheduler
+from TramSim.Interfaces import TextInterface
 
 class GameController(object):
     '''
@@ -10,16 +13,15 @@ class GameController(object):
     '''
 
 
-    def __init__(self, entity_manager, scheduler, interface):
+    def __init__(self):
         '''
         Constructor
-        
-        @param entity_manager: EntityManager
-        @param scheduler: Scheduler
+        Will also construct an EntityManager, Scheduler and TextInterface
         '''
-        self.em = entity_manager
-        self.scheduler = scheduler
-        self.interface = interface
+        map_ = Map("Game World", 15, 10)
+        self.em = EntityManager(map_)
+        self.scheduler = Scheduler
+        self.interface = TextInterface
     
     def loop(self):
         '''
