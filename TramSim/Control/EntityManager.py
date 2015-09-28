@@ -45,17 +45,33 @@ class EntityManager:
             output.extend(ent.getPlayerActions())
         return output
     
-    def getUserChoice(self, choices):
+    def getUserChoice(self):
         '''
         gets the user input and chooses from a list
         
-        @param choices: list
-        @rtype: int
-        @return: the index of the choice
+        @rtype: Action
+        @return: the Action the user chose
+        TODO: obvious input handling
         '''
+        choices = self.getUserActions()
+        if not choices:
+            return
         i = 1
         for c in choices:
             print("[{}] {}".format(str(i), str(c)))
             i += 1
         result = int(input("Selection: "))
-        return result-1
+        return choices[result-1]
+    
+    def getAIActions(self):
+        '''
+        gets one action per AI
+        
+        @rtype: list
+        '''
+        actions = []
+        for e in self.getAllEntities():
+            action = e.getAIAction()
+            if action:
+                actions.append(action)
+        return actions

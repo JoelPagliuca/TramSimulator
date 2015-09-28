@@ -57,7 +57,7 @@ class Entity(object):
                 options.append(a)
         return options
     
-    def getPossibleActions(self):
+    def getPossibleAIActions(self):
         '''
         gets the AI actions that can be done
         
@@ -69,7 +69,7 @@ class Entity(object):
                 options.append(a)
         return options
     
-    def getRandomAction(self):
+    def getAIAction(self):
         '''
         @rtype: Action
         '''
