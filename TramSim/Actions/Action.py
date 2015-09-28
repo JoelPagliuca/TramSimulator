@@ -40,5 +40,3 @@ class Action(object):
         gets a description of what the action is
         '''
         raise NotImplementedError()
-    
-    __str__ = getDescription

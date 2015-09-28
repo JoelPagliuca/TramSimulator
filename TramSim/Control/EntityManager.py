@@ -58,7 +58,7 @@ class EntityManager:
             return
         i = 1
         for c in choices:
-            print("[{}] {}".format(str(i), str(c)))
+            print("[{}] {}".format(str(i), c.getDescription()))
             i += 1
         result = int(input("Selection: "))
         return choices[result-1]
@@ -75,3 +75,9 @@ class EntityManager:
             if action:
                 actions.append(action)
         return actions
+    
+    def getMap(self):
+        '''
+        @rtype: Map
+        '''
+        return self._map

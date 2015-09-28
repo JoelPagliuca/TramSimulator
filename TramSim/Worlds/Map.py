@@ -34,7 +34,7 @@ class Map:
         '''
         @rtype: str
         '''
-        output = ''
+        output = self.name+'\n'
         sep = ''
         for row in self._grid:
             rowstr = sep + '|'

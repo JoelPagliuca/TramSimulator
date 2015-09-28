@@ -17,4 +17,10 @@ class SayHi(Action):
         return True
     
     def do(self):
+        '''
+        prints Hi
+        '''
         print("Hi!")
+    
+    def getDescription(self):
+        return "Have {} say hi".format(self.entity.name)

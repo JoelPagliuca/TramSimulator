@@ -37,7 +37,7 @@ class Entity(object):
         '''
         @param action: Action
         '''
-        self._possibleActions.append(action)
+        self._playerActions.append(action)
     
     def addPossibleAction(self, action):
         '''
@@ -73,4 +73,7 @@ class Entity(object):
         '''
         @rtype: Action
         '''
-        return random.choice(self.getPossibleActions())
+        try:
+            return random.choice(self.getPossibleAIActions())
+        except IndexError:
+            pass
