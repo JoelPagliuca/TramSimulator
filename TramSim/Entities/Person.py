@@ -4,11 +4,12 @@ Created on 08/03/2014
 @author: Joel Pagliuca
 '''
 import random
+from TramSim.Entities import Entity
 
 NAMES = ["Joel", "Geoffrey", "Edward", "Thomas", "James", "Percy",
          "Jesse", "Gina", "Ellen", "Tabitha", "Jill", "Elizabeth"]
 
-class Person:
+class Person(Entity):
     '''
     Person
     

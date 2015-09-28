@@ -1,7 +1,7 @@
 '''
 Created on 11/07/2015
 
-@author: JoelPagliuca
+@author: Joel Pagliuca
 '''
 
 class Scheduler(object):

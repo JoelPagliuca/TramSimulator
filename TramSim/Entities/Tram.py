@@ -1,10 +1,11 @@
 '''
 Created on 08/03/2014
 
-@author: Joel
+@author: Joel Pagliuca
 '''
+from TramSim.Entities import Entity
 
-class Tram:
+class Tram(Entity):
     '''
     Tram
     

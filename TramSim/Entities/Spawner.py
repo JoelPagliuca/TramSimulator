@@ -1,7 +1,7 @@
 '''
 Created on 28 Sep 2015
 
-@author: owner
+@author: Joel Pagliuca
 '''
 
 class Spawner(object):
