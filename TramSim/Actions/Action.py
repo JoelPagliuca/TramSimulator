@@ -18,6 +18,9 @@ class Action(object):
     def __init__(self, entity):
         '''
         Constructor
+        
+        TODO: type check
+        @param entity: Entity
         '''
         self.entity = entity
     

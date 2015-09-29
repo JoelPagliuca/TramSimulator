@@ -5,8 +5,11 @@ Created on 13/03/2015
 '''
 import unittest
 
-from TramSim.Entities import Loop, Tram
-from TramSim.Locations import Location, Stop, Map
+from TramSim.Actions import Action
+from TramSim.Actions import *
+from TramSim.Entities import Entity
+from TramSim.Entities import *
+from TramSim.Worlds import *
 
 class TramSimTest(unittest.TestCase):
     '''
@@ -17,17 +20,22 @@ class TramSimTest(unittest.TestCase):
     
     def setUp(self):
         
-        self.loop = Loop('Test Loop')
+#         self.loop = Loop('Test Loop')
+#         
+#         self.stop1 = Stop('Nigeria')
+#         self.stop2 = Stop('Brazil')
+#         self.stop3 = Stop('Broviet')
+#         
+#         self.loop.addStop(self.stop1)
+#         self.loop.addStop(self.stop2)
+#         
+#         self.tram = Tram(self.loop, self.stop1)
+#         
+#         self.location = Location('Serbia')
+#         
+#         self.map_ = Map('Test Map', 3, 4)
         
-        self.stop1 = Stop('Nigeria')
-        self.stop2 = Stop('Brazil')
-        self.stop3 = Stop('Broviet')
+        ## Actions
         
-        self.loop.addStop(self.stop1)
-        self.loop.addStop(self.stop2)
-        
-        self.tram = Tram(self.loop, self.stop1)
-        
-        self.location = Location('Serbia')
-        
-        self.map_ = Map('Test Map', 3, 4)
+        self.action = Action(Entity('TEST'))
+        self.sayhi = SayHi(Entity('TEST'))
