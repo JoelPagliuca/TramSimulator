@@ -11,7 +11,7 @@ class Entity(object):
     
     PROPERTIES:
         name
-        entityManager
+        EntityManager
         _possibleActions - list of actions that may be randomly selected
         _playerActions - list of actions that a player may select
     '''
