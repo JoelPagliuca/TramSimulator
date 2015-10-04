@@ -7,15 +7,15 @@ Created on 28 Sep 2015
 class Spawner(object):
     '''
     Creates clones of certain entities
+    Prototype pattern
     '''
-
 
     def __init__(self, cloneable):
         '''
         TODO: type checking, or check if has clone()
         @param cloneable: Entity with clone method
         '''
-        self.prototype = cloneable
+        self._prototype = cloneable
     
     def spawn(self):
         '''
@@ -23,4 +23,4 @@ class Spawner(object):
         
         @rtype: Entity (same type as cloneable)
         '''
-        return self.prototype.clone()
+        return self._prototype.clone()

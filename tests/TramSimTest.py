@@ -45,3 +45,4 @@ class TramSimTest(unittest.TestCase):
         self.entity = Entity('TEST')
         self.person1 = Person('Person1')
         self.person2 = Person('Person2')
+        self.personSpawner = Spawner(self.person1)
