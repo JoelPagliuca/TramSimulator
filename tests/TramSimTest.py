@@ -39,3 +39,9 @@ class TramSimTest(unittest.TestCase):
         
         self.action = Action(Entity('TEST'))
         self.sayhi = SayHi(Entity('TEST'))
+        
+        ## Entities
+        
+        self.entity = Entity('TEST')
+        self.person1 = Person('Person1')
+        self.person2 = Person('Person2')

@@ -12,7 +12,7 @@ class Entity(object):
     PROPERTIES:
         name
         EntityManager
-        _possibleActions - list of actions that may be randomly selected
+        _AIActions - list of actions that may be randomly selected
         _playerActions - list of actions that a player may select
     '''
 
@@ -24,7 +24,7 @@ class Entity(object):
         Constructor
         '''
         self.name = name
-        self._possibleActions = []
+        self._AIActions = []
         self._playerActions = []
     
     def getName(self):
@@ -39,11 +39,11 @@ class Entity(object):
         '''
         self._playerActions.append(action)
     
-    def addPossibleAction(self, action):
+    def addAIAction(self, action):
         '''
         @param action: Action
         '''
-        self._possibleActions.append(action)
+        self._AIActions.append(action)
     
     def getPlayerActions(self):
         '''
@@ -64,16 +64,22 @@ class Entity(object):
         @rtype: List
         '''
         options = []
-        for a in self._possibleActions:
+        for a in self._AIActions:
             if a.canDo():
                 options.append(a)
         return options
     
     def getAIAction(self):
         '''
-        @rtype: Action
+        @rtype: Action or None
         '''
         try:
             return random.choice(self.getPossibleAIActions())
         except IndexError:
-            pass
+            return None
+    
+    def update(self):
+        '''
+        probably for updating the possible actions
+        '''
+        pass
