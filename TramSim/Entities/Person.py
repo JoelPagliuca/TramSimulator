@@ -29,6 +29,9 @@ class Person(Entity):
     
     def __str__(self):
         '''
+        symbol for the train
+        
+        @rtype: str
         '''
         return "O"
     
