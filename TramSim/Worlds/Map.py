@@ -26,9 +26,14 @@ class Map:
         self.width = sizex
         self.height = sizey
         
-        row = [Location('Garbage')]*sizex
+        row = [None for _ in range(sizex)]
         for _ in range(sizey):
             self._grid.append(row.copy())
+            
+        prototype = Location('Garbage')
+        for y in range(sizey):
+            for x in range(sizex):
+                self._grid[y][x] = prototype.clone()
     
     def __str__(self):
         '''
@@ -51,6 +56,7 @@ class Map:
         @param loc: Location
         @param locx: int
         @param locy: int
+        @raise ValueError: loc not a Location
         '''
         # START TYPE CHECKING
         # loc

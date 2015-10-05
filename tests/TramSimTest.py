@@ -19,12 +19,7 @@ class TramSimTest(unittest.TestCase):
     '''
     
     def setUp(self):
-        
-#         self.tram = Tram(self.loop, self.stop1)
-#         
-#         
-#         self.map_ = Map('Test Map', 3, 4)
-        
+                         
         ## Actions
         
         self.action = Action(Entity('TEST'))
@@ -36,6 +31,7 @@ class TramSimTest(unittest.TestCase):
         self.person1 = Person('Person1')
         self.person2 = Person('Person2')
         self.personSpawner = Spawner(self.person1)
+        self.tram = Tram()
         
         ## Worlds
         
@@ -50,3 +46,4 @@ class TramSimTest(unittest.TestCase):
         self.loop.addStop(self.stop1)
         self.loop.addStop(self.stop2)
          
+        self.map_ = Map('Test Map', 3, 4)

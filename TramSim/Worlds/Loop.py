@@ -43,13 +43,13 @@ class Loop:
         @precondition: 1 the loop must contain stop
         @raise ValueError: 
         '''
-        # while stop in self.stops?
+        # while stop in self._stops?
         # START PRECONDITIONS
         # 1
         if not stop in self.getStops():
             raise ValueError('the loop must contain stop')
         # END PRECONDITIONS
-        self.stops.remove(stop)
+        self._stops.remove(stop)
     
     def nextStop(self, stop):
         '''

@@ -9,9 +9,7 @@ from tests.TramSimTest import TramSimTest
 
 class TestStop(TramSimTest):
 
-    def test_setTram(self):
-        self.stop1.setTram(self.tram)
-        self.assertEqual(self.tram, self.stop1.tram)
+    pass # essentially a Location at the moment
 
 if __name__ == "__main__":
     unittest.main()
