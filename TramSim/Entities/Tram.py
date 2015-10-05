@@ -20,7 +20,7 @@ class Tram(Entity):
     CAPACITY = 128
 
 
-    def __init__(self, loop, stop):
+    def __init__(self, loop):
         ''' TODO: stop1 has to be on loop
         Constructor
         
@@ -32,8 +32,6 @@ class Tram(Entity):
         self.doorStatus = True
         
         self.loop = loop
-        self.stop = stop
-        self.stop.setTram(self)
     
     def __str__(self):
         '''
@@ -52,73 +50,61 @@ class Tram(Entity):
   \\\\================================={doors}{doors}{doors}=====================================//  """.format(*self.seats,doors = doors)
         return output
     
-    def getStop(self):
-        '''
-        @return: current stop1
-        @rtype: Stop
-        '''
-        return self.stop
     
-    def getNextSeat(self):
-        '''
-        returns the index of the next available seat
-        
-        @return: number of seat, None if no available seat
-        '''
-        try:
-            seat = self.seats.index('#') #returns the index of the first '#'
-            return seat
-        except:
-            return None
+#     def getNextSeat(self):
+#         '''
+#         returns the index of the next available seat
+#         
+#         @return: number of seat, None if no available seat
+#         '''
+#         try:
+#             seat = self.seats.index('#') #returns the index of the first '#'
+#             return seat
+#         except:
+#             return None
     
-    def hasAvailableSeat(self):
-        '''
-        @rtype: boolean
-        '''
-        return not self.getNextSeat() is None
-    
-    def isTakingPassengers(self):
-        '''
-        checks if passengers can be taken
-        '''
-        return self.hasAvailableSeat() and self.doorsOpen()
-    
-    def doorsOpen(self):
-        '''
-        '''
-        return not self.doorStatus
-    
-    def openDoors(self):
-        '''
-        opens the doors of the tram
-        '''
-        self.doorStatus = False
-    
-    def closeDoors(self):
-        '''
-        closes the doors
-        '''
-        self.doorStatus = True
-    
-    def nextStop(self):
-        '''
-        changes the station the tram is at
-        '''
-        self.stop = self.loop.nextStop(self.stop)
-    
-    def seatPassenger(self, passenger, seat):
-        '''
-        puts the passenger in the seat
-        
-        @param passenger: Person
-        @param seat: integer - the seat number
-        '''
-        self.seats[seat] = passenger
-    
-    def clearSeat(self, seat):
-        '''
-        empties the seat
-        
-        @param seat: int
-        '''
-        self.seats[seat] = '#'
+#     def hasAvailableSeat(self):
+#         '''
+#         @rtype: boolean
+#         '''
+#         return not self.getNextSeat() is None
+#     
+#     def isTakingPassengers(self):
+#         '''
+#         checks if passengers can be taken
+#         '''
+#         return self.hasAvailableSeat() and self.doorsOpen()
+#     
+#     def doorsOpen(self):
+#         '''
+#         '''
+#         return not self.doorStatus
+#     
+#     def openDoors(self):
+#         '''
+#         opens the doors of the tram
+#         '''
+#         self.doorStatus = False
+#     
+#     def closeDoors(self):
+#         '''
+#         closes the doors
+#         '''
+#         self.doorStatus = True
+#     
+#     def seatPassenger(self, passenger, seat):
+#         '''
+#         puts the passenger in the seat
+#         
+#         @param passenger: Person
+#         @param seat: integer - the seat number
+#         '''
+#         self.seats[seat] = passenger
+#     
+#     def clearSeat(self, seat):
+#         '''
+#         empties the seat
+#         
+#         @param seat: int
+#         '''
+#         self.seats[seat] = '#'
