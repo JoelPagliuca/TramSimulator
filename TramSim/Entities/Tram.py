@@ -12,26 +12,18 @@ class Tram(Entity):
     representation of a tram
     
     PROPERTIES:
-        seats - list - contains the passengers
+        _seats - list - contains the passengers
         doorStatus - boolean - True if doors are closed
-        loop - the loop the train is on
-        stop - the stop1 the tram is currently at
     '''
     CAPACITY = 128
 
 
-    def __init__(self, loop):
-        ''' TODO: stop1 has to be on loop
+    def __init__(self):
+        '''
         Constructor
-        
-        @param loop: Loop
-        @param stop: Stop
         '''
         self.seats = ['#']*self.CAPACITY
-        
         self.doorStatus = True
-        
-        self.loop = loop
     
     def __str__(self):
         '''

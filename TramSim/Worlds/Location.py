@@ -18,6 +18,8 @@ class Location(object):
     def __init__(self, name):
         '''
         Constructor
+        
+        @param name: str
         '''
         self.name = str(name)
         self.symbol = '-'
@@ -70,3 +72,11 @@ class Location(object):
         @rtype: list
         '''
         return self._contents.copy()
+    
+    def clone(self):
+        '''
+        @rtype: Location
+        '''
+        new_location = Location(self.name)
+        new_location.setSymbol(self.getSymbol())
+        return new_location

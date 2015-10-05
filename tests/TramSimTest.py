@@ -20,15 +20,6 @@ class TramSimTest(unittest.TestCase):
     
     def setUp(self):
         
-#         self.loop = Loop('Test Loop')
-#         
-#         self.stop1 = Stop('Nigeria')
-#         self.stop2 = Stop('Brazil')
-#         self.stop3 = Stop('Broviet')
-#         
-#         self.loop.addStop(self.stop1)
-#         self.loop.addStop(self.stop2)
-#         
 #         self.tram = Tram(self.loop, self.stop1)
 #         
 #         
@@ -49,3 +40,13 @@ class TramSimTest(unittest.TestCase):
         ## Worlds
         
         self.location = Location('Serbia')
+        
+        self.loop = Loop('Test Loop')
+         
+        self.stop1 = Stop('Nigeria')
+        self.stop2 = Stop('Brazil')
+        self.stop3 = Stop('Broviet')
+         
+        self.loop.addStop(self.stop1)
+        self.loop.addStop(self.stop2)
+         
