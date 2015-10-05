@@ -31,7 +31,6 @@ class TramSimTest(unittest.TestCase):
 #         
 #         self.tram = Tram(self.loop, self.stop1)
 #         
-#         self.location = Location('Serbia')
 #         
 #         self.map_ = Map('Test Map', 3, 4)
         
@@ -46,3 +45,7 @@ class TramSimTest(unittest.TestCase):
         self.person1 = Person('Person1')
         self.person2 = Person('Person2')
         self.personSpawner = Spawner(self.person1)
+        
+        ## Worlds
+        
+        self.location = Location('Serbia')

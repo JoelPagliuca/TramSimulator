@@ -6,6 +6,7 @@ Created on 10/03/2015
 import unittest
 
 from tests.TramSimTest import TramSimTest
+from TramSim.Worlds.Location import Location
 
 class TestLocation(TramSimTest):
 
@@ -26,7 +27,12 @@ class TestLocation(TramSimTest):
         self.assertNotIn(56, self.location._contents)
         
         self.assertRaises(ValueError, self.location.removeEntity, 57)
-
+    
+    def test_clone(self):
+        clone = self.location.clone()
+        self.assertIsInstance(clone, Location)
+        self.assertEqual(self.location.getName(), clone.getName())
+        self.assertEqual(self.location.getSymbol(), clone.getSymbol())
 
 if __name__ == "__main__":
     unittest.main()
