@@ -27,6 +27,18 @@ class EntityManager:
         '''
         return self._map.getAllEntities()
     
+    def moveEntity(self, entity, x, y):
+        '''
+        moves the entity to the given coordinate
+        
+        @raise Exception: if coordinates are bad, or 
+        '''
+        loc = self.whereIs(entity)
+        loc.removeEntity(entity)
+        loc = self._map.getLocation(x, y)
+        loc.addEntity(entity)
+        
+    
     def whereIs(self, entity):
         '''
         gives location containing entity

@@ -15,7 +15,7 @@ class Action(object):
     '''
 
 
-    def __init__(self, entity):
+    def __init__(self, entity, **kwargs):
         '''
         Constructor
         

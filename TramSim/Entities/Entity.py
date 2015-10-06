@@ -83,3 +83,9 @@ class Entity(object):
         probably for updating the possible actions
         '''
         pass
+    
+    def getEntityManager(self):
+        '''
+        @rtype: EntityManager
+        '''
+        return self.EntityManager

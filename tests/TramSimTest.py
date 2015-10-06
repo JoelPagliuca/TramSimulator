@@ -10,6 +10,7 @@ from TramSim.Actions import *
 from TramSim.Entities import Entity
 from TramSim.Entities import *
 from TramSim.Worlds import *
+from TramSim.Control.EntityManager import EntityManager
 
 class TramSimTest(unittest.TestCase):
     '''
@@ -47,3 +48,7 @@ class TramSimTest(unittest.TestCase):
         self.loop.addStop(self.stop2)
          
         self.map_ = Map('Test Map', 3, 4)
+        
+        ## Control
+        
+        self.entitymanager = EntityManager(self.map_)
