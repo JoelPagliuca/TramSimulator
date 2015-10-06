@@ -27,6 +27,15 @@ class EntityManager:
         '''
         return self._map.getAllEntities()
     
+    def placeEntity(self, entity, x, y):
+        '''
+        places the entity on the given coordinate
+        
+        @raise Exception: if coordinates are bad
+        '''
+        loc = self._map.getLocation(x, y)
+        loc.addEntity(entity)
+    
     def moveEntity(self, entity, x, y):
         '''
         moves the entity to the given coordinate
@@ -35,8 +44,7 @@ class EntityManager:
         '''
         loc = self.whereIs(entity)
         loc.removeEntity(entity)
-        loc = self._map.getLocation(x, y)
-        loc.addEntity(entity)
+        self.placeEntity(entity, x, y)
         
     
     def whereIs(self, entity):

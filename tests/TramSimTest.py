@@ -20,11 +20,6 @@ class TramSimTest(unittest.TestCase):
     '''
     
     def setUp(self):
-                         
-        ## Actions
-        
-        self.action = Action(Entity('TEST'))
-        self.sayhi = SayHi(Entity('TEST'))
         
         ## Entities
         
@@ -52,3 +47,9 @@ class TramSimTest(unittest.TestCase):
         ## Control
         
         self.entitymanager = EntityManager(self.map_)
+        Entity.EntityManager = self.entitymanager
+        
+        ## Actions
+        
+        self.action = Action(Entity('TEST'))
+        self.sayhi = SayHi(Entity('TEST'))
