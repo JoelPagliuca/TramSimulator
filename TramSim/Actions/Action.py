@@ -14,7 +14,6 @@ class Action(object):
         entity
     '''
 
-
     def __init__(self, entity, **kwargs):
         '''
         Constructor
@@ -23,6 +22,7 @@ class Action(object):
         @param entity: Entity
         '''
         self.entity = entity
+        self.entitymanager = entity.EntityManager
     
     def canDo(self):
         '''

@@ -9,6 +9,7 @@ class Loop:
     Loop
     
     representation of a tram loop
+    TODO: __iter__ over _stops
     
     PROPERTIES:
         name
@@ -56,6 +57,7 @@ class Loop:
         @param stop: Stop
         @precondition: 1 stop must be in the loop
         @rtype: Stop
+        @raise ValueError: if stop not in loop
         '''
         # START PRECONDITIONS
         # 1

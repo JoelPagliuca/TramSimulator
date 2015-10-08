@@ -24,7 +24,7 @@ class MoveCoordinate(Action):
         
         @rtype: bool
         '''
-        em = self.entity.getEntityManager()
+        em = self.entitymanager
         try:
             em.getMap().getLocation(self._x, self._y)
         except:
@@ -38,5 +38,5 @@ class MoveCoordinate(Action):
         '''
         tell the em to move the entity
         '''
-        em = self.entity.getEntityManager()
+        em = self.entitymanager
         em.moveEntity(self.entity, self._x, self._y) 

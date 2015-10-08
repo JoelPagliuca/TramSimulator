@@ -21,14 +21,6 @@ class TramSimTest(unittest.TestCase):
     
     def setUp(self):
         
-        ## Entities
-        
-        self.entity = Entity('TEST')
-        self.person1 = Person('Person1')
-        self.person2 = Person('Person2')
-        self.personSpawner = Spawner(self.person1)
-        self.tram = Tram()
-        
         ## Worlds
         
         self.location = Location('Serbia')
@@ -41,13 +33,25 @@ class TramSimTest(unittest.TestCase):
          
         self.loop.addStop(self.stop1)
         self.loop.addStop(self.stop2)
+        self.loop.addStop(self.stop3)
          
         self.map_ = Map('Test Map', 3, 4)
+        self.map_.addLocation(self.stop1, 0, 0)
+        self.map_.addLocation(self.stop2, 1, 2)
+        self.map_.addLocation(self.stop3, 2, 0)
         
         ## Control
         
         self.entitymanager = EntityManager(self.map_)
         Entity.EntityManager = self.entitymanager
+        
+        ## Entities
+        
+        self.entity = Entity('TEST')
+        self.person1 = Person('Person1')
+        self.person2 = Person('Person2')
+        self.personSpawner = Spawner(self.person1)
+        self.tram = Tram(self.loop)
         
         ## Actions
         

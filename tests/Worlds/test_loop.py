@@ -20,17 +20,14 @@ class TestLoopFunctions(TramSimTest):
     
     def test_removeStop(self):
         # removeStop should remove the stop from the list or throw an exception if it isn't there
-        self.loop.addStop(self.stop3)
         self.loop.removeStop(self.stop3)
         self.assertTrue(not self.stop3 in self.loop._stops)
         
         self.assertRaises(ValueError, self.loop.removeStop, self.stop3)
     
     def test_nextStop(self):
-        self.loop.addStop(self.stop1)
-        self.loop.addStop(self.stop2)
         self.assertEqual(self.loop.nextStop(self.stop1), self.stop2)
-        self.assertEqual(self.loop.nextStop(self.stop2), self.stop1)
+        self.assertEqual(self.loop.nextStop(self.stop3), self.stop1)
 
 if __name__ == "__main__":
     unittest.main()

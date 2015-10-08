@@ -11,6 +11,7 @@ class Stop(Location):
     Stop
     
     representation of a tram stop
+    TODO: have something that lets Stop have multiple trams
     
     PROPERTIES:
         

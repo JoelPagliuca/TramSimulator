@@ -27,11 +27,13 @@ class TestMoveCoordinate(TramSimTest):
     def testDo(self):
         src  = self.entitymanager.getMap().getLocation(1, 1)
         dest = self.entitymanager.getMap().getLocation(1, 2)
+        othr = self.entitymanager.getMap().getLocation(2, 1)
         mc = MoveCoordinate(self.entity, 1, 2)
         self.assertFalse(dest.contains(self.entity))
         mc.do()
         self.assertTrue(dest.contains(self.entity))
         self.assertFalse(src.contains(self.entity))
+        self.assertFalse(othr.contains(self.entity))
 
 if __name__ == "__main__":
     unittest.main()
