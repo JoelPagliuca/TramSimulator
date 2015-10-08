@@ -36,10 +36,10 @@ class GameController(object):
             # handle user input
             a = self.manager.getUserChoice()
             if a:
-                self.scheduler.queue_action(a)
+                self.scheduler.schedule(a)
             # update
             for a in self.manager.getAIActions():
-                self.scheduler.queue_action(a)
+                self.scheduler.schedule(a)
             self.scheduler.tick()
             # render
             self.interface.render(self.manager.getMap())

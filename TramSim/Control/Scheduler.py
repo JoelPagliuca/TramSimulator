@@ -18,7 +18,7 @@ class Scheduler(object):
         '''
         self._actions = []
     
-    def queue_action(self, action):
+    def schedule(self, action):
         '''
         TODO: better method name
         

@@ -9,7 +9,6 @@ class Loop:
     Loop
     
     representation of a tram loop
-    TODO: __iter__ over _stops
     
     PROPERTIES:
         name
@@ -25,6 +24,13 @@ class Loop:
         '''
         self.name = str(name)
         self._stops = []
+    
+    def __iter__(self):
+        '''
+        will all us to iterate over loop with
+        for stop in Loop
+        '''
+        return iter(self._stops)
     
     def addStop(self, stop):
         '''

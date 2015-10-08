@@ -28,6 +28,12 @@ class TestLoopFunctions(TramSimTest):
     def test_nextStop(self):
         self.assertEqual(self.loop.nextStop(self.stop1), self.stop2)
         self.assertEqual(self.loop.nextStop(self.stop3), self.stop1)
+    
+    def test_iter(self):
+        i = 0
+        for _ in self.loop:
+            i += 1
+        self.assertEqual(i, len(self.loop.getStops()))
 
 if __name__ == "__main__":
     unittest.main()
