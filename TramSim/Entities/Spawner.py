@@ -12,9 +12,13 @@ class Spawner(object):
 
     def __init__(self, cloneable):
         '''
-        TODO: type checking, or check if has clone()
         @param cloneable: Entity with clone method
+        @raise ValueError: if cloneable is not clone()able
         '''
+        # START PRECONDITIONS
+        if not hasattr(cloneable, 'clone'):
+            raise ValueError("Spawner: cloneable did not have method clone()")
+        # END PRECONDITINOS
         self._prototype = cloneable
     
     def spawn(self):
