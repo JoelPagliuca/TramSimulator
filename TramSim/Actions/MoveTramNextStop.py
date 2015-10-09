@@ -40,4 +40,8 @@ class MoveTramNextStop(Action):
         em.moveEntity(self.entity, *coords)
     
     def getDescription(self):
-        return "Move {} to the next stop".format(self.entity.name)
+        em = self.entity.EntityManager
+        loop = self.entity.loop
+        current_stop = em.whereIs(self.entity)
+        next_stop = loop.nextStop(current_stop)
+        return "Move {} to {}".format(self.entity.name, next_stop.name)

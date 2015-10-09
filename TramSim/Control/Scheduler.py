@@ -30,3 +30,5 @@ class Scheduler(object):
         '''
         for a in self._actions:
             a.do()
+            print("Doing a thing")
+        self._actions.clear()
