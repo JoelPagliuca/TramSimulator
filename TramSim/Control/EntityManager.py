@@ -71,7 +71,6 @@ class EntityManager:
         
         @rtype: Action
         @return: the Action the user chose
-        TODO: obvious input handling
         '''
         choices = self.getUserActions()
         if not choices:
@@ -80,7 +79,14 @@ class EntityManager:
         for c in choices:
             print("[{}] {}".format(str(i), c.getDescription()))
             i += 1
-        result = int(input("Selection: "))
+        while True:
+            result = input("Selection: ")
+            try:
+                result = int(result)
+            except ValueError:
+                continue
+            if (result > 0 and result < i):
+                break
         return choices[result-1]
     
     def getAIActions(self):
