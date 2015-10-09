@@ -17,11 +17,12 @@ class MoveTramNextStop(Action):
         
         @rtype: bool
         '''
+        em = self.entity.EntityManager
         if not isinstance(self.entity, Tram):
             return False
         
         loop = self.entity.loop
-        current_stop = self.entitymanager.whereIs(self.entity)
+        current_stop = em.whereIs(self.entity)
         try:
             _ = loop.nextStop(current_stop)
             return True
@@ -31,8 +32,12 @@ class MoveTramNextStop(Action):
     def do(self):
         '''
         '''
+        em = self.entity.EntityManager
         loop = self.entity.loop
-        current_stop = self.entitymanager.whereIs(self.entity)
+        current_stop = em.whereIs(self.entity)
         next_stop = loop.nextStop(current_stop)
-        coords = self.entitymanager.getMap().findCoordinates(next_stop)
-        self.entitymanager.moveEntity(self.entity, *coords)
+        coords = em.getMap().findCoordinates(next_stop)
+        em.moveEntity(self.entity, *coords)
+    
+    def getDescription(self):
+        return "Move {} to the next stop".format(self.entity.name)

@@ -3,7 +3,6 @@ Created on 16/03/2015
 
 @author: Joel Pagliuca
 '''
-
 class Action(object):
     '''
     ABSTRACT
@@ -22,7 +21,6 @@ class Action(object):
         @param entity: Entity
         '''
         self.entity = entity
-        self.entitymanager = entity.EntityManager
     
     def canDo(self):
         '''

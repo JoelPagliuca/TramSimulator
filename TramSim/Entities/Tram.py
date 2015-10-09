@@ -18,12 +18,13 @@ class Tram(Entity):
     CAPACITY = 128
 
 
-    def __init__(self, loop):
+    def __init__(self, name, loop):
         '''
         Constructor
         
         @param loop: TramSim.Worlds.Loop
         '''
+        super().__init__(name)
         self.loop = loop
         self.seats = ['#']*self.CAPACITY
         self.doorStatus = True

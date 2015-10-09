@@ -51,7 +51,7 @@ class TramSimTest(unittest.TestCase):
         self.person1 = Person('Person1')
         self.person2 = Person('Person2')
         self.personSpawner = Spawner(self.person1)
-        self.tram = Tram(self.loop)
+        self.tram = Tram("Test Tram", self.loop)
         
         ## Actions
         

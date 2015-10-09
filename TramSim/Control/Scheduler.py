@@ -20,8 +20,6 @@ class Scheduler(object):
     
     def schedule(self, action):
         '''
-        TODO: better method name
-        
         @param action: Action
         '''
         self._actions.append(action)
