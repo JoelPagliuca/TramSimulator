@@ -73,6 +73,14 @@ class Map:
         @param locy: int
         @rtype: Location
         '''
+        # START PRECONDITIONS
+        # 1
+        if not (locx < self.width and locx >= 0):
+            raise ValueError("locx ({}) must be valid".format(locx))
+        # 2
+        if not (locy < self.height and locy >= 0):
+            raise ValueError("locy ({}) must be valid".format(locy))
+        # END PRECONDITIONS
         return self._grid[locy][locx]
     
     def findCoordinates(self, location):
@@ -115,3 +123,23 @@ class Map:
                 loc = self.getLocation(j, i)
                 entities += loc.getContents()
         return entities
+    
+    def getNeighborLocations(self, loc):
+        '''
+        gets the surrounding locations to loc
+        
+        @param loc: Location
+        @rtype: list <Location> 
+        '''
+        results = []
+        (x, y) = self.findCoordinates(loc)
+        possibilities = [(x-1, y), (x-1, y+1), (x, y+1), (x+1, y+1),
+                         (x+1, y), (x+1, y-1), (x, y-1), (x-1, y-1)]
+        for c in possibilities:
+            try:
+                l = self.getLocation(*c)
+                results.append(l)
+            except:
+                # the coordinate was invalid
+                pass
+        return results

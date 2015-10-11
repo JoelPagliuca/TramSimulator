@@ -44,6 +44,14 @@ class TestMap(TramSimTest):
         alle = self.map_.getAllEntities()
         self.assertListEqual(alle, [self.person1, self.person2, self.entity])
         self.assertEqual(3, len(alle))
+    
+    def test_getNeighborLocations(self):
+        loc = self.map_.getLocation(0, 0)
+        res = self.map_.getNeighborLocations(loc)
+        self.assertEqual(len(res), 3)
+        loc = self.map_.getLocation(1, 1)
+        res = self.map_.getNeighborLocations(loc)
+        self.assertEqual(len(res), 8)
 
 if __name__ == "__main__":
     unittest.main()
