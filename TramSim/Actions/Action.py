@@ -3,6 +3,8 @@ Created on 16/03/2015
 
 @author: Joel Pagliuca
 '''
+from TramSim.Entities import Entity
+
 class Action(object):
     '''
     ABSTRACT
@@ -17,9 +19,13 @@ class Action(object):
         '''
         Constructor
         
-        TODO: type check
         @param entity: Entity
         '''
+        # START PRECONDITIONS
+        # 1
+        if not isinstance(entity, Entity):
+            raise ValueError("Action: entity must be an Entity")
+        # END PRECONDITIONS
         self.entity = entity
     
     def canDo(self):
