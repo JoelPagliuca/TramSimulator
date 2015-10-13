@@ -31,6 +31,11 @@ class MoveTramNextStop(Action):
     
     def do(self):
         '''
+        get the current stop
+        find the next stop
+        get the coordinates to move to
+        tell the manager to move the tram
+        and also moves the passengers
         '''
         em = self.entity.EntityManager
         loop = self.entity.loop
@@ -38,6 +43,8 @@ class MoveTramNextStop(Action):
         next_stop = loop.nextStop(current_stop)
         coords = em.getMap().findCoordinates(next_stop)
         em.moveEntity(self.entity, *coords)
+        for e in self.entity.getPassengers():
+            em.moveEntity(e, *coords)
     
     def getDescription(self):
         em = self.entity.EntityManager
