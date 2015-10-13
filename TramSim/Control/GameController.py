@@ -5,7 +5,7 @@ Created on 28 Sep 2015
 '''
 from TramSim.Entities import Entity
 from TramSim.Control import EntityManager, Scheduler
-from TramSim.Interfaces import TextInterface
+from TramSim import Game
 
 from TramSim.Worlds import MapFactory
 
@@ -25,7 +25,7 @@ class GameController(object):
         self.manager = EntityManager(map_)
         Entity.EntityManager = self.manager
         self.scheduler = Scheduler()
-        self.interface = TextInterface()
+        self.interface = Game.INTERFACE
     
     def loop(self):
         '''
