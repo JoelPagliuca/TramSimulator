@@ -21,7 +21,12 @@ class MovePersonRandom(Action):
         em = self.entity.EntityManager
         loc = em.whereIs(self.entity)
         opts = em.getMap().getNeighborLocations(loc)
-        return len(opts) > 0
+        not_in_tram = True
+        try:
+            not_in_tram = not self.entity.tram
+        except:
+            pass # TODO: yeah this could probably be done better
+        return (len(opts) > 0) and not_in_tram
         
     def do(self):
         em = self.entity.EntityManager

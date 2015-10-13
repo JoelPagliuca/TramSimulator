@@ -52,6 +52,7 @@ class TramSimTest(unittest.TestCase):
         self.person2 = Person('Person2')
         self.personSpawner = Spawner(self.person1)
         self.tram = Tram("Test Tram", self.loop)
+        self.tram.openDoors()
         
         ## Actions
         

@@ -16,6 +16,7 @@ class Person(Entity):
     representation of a person
     
     PROPERTIES:
+        tram
     '''
 
 
@@ -26,6 +27,7 @@ class Person(Entity):
         @param name: str
         '''
         super().__init__(name)
+        self.tram = None
     
     def __str__(self):
         '''
