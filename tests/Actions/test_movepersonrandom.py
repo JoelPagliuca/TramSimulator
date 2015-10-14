@@ -10,7 +10,7 @@ from tests.TramSimTest import TramSimTest
 from TramSim.Worlds import Map
 from TramSim.Actions import MovePersonRandom
 
-class Test(TramSimTest):
+class TestMovePersonRandom(TramSimTest):
 
     def test_canDo(self):
         self.entitymanager.placeEntity(self.entity, 2, 3)

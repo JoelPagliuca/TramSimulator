@@ -8,7 +8,7 @@ import unittest
 from tests.TramSimTest import TramSimTest
 from TramSim.Actions.MoveTramNextStop import MoveTramNextStop
 
-class Test(TramSimTest):
+class TestMoveTramNextStop(TramSimTest):
     
     def setUp(self):
         TramSimTest.setUp(self)
