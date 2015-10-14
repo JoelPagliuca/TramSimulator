@@ -57,6 +57,12 @@ class Entity(object):
                 options.append(a)
         return options
     
+    def getAllPlayerActions(self):
+        '''
+        @rtype: list
+        '''
+        return self._playerActions.copy()
+    
     def getPossibleAIActions(self):
         '''
         gets the AI actions that can be done
@@ -71,12 +77,20 @@ class Entity(object):
     
     def getAIAction(self):
         '''
+        a random AI Action
+        
         @rtype: Action or None
         '''
         try:
             return random.choice(self.getPossibleAIActions())
         except IndexError:
             return None
+    
+    def getAllAIActions(self):
+        '''
+        @rtype: list
+        '''
+        return self._AIActions.copy()
     
     def update(self):
         '''

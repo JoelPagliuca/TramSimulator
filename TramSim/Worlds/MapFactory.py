@@ -5,7 +5,9 @@ Created on 09/10/2015
 '''
 from TramSim.Worlds import Map, Location, Loop, Stop
 from TramSim.Entities import Person, Tram, Spawner, Entity
-from TramSim.Actions import SayHi, MoveTramNextStop
+from TramSim.Actions import MovePersonRandom, MoveTramNextStop
+
+from random import randint
 
 class MapFactory(object):
     '''
@@ -13,11 +15,13 @@ class MapFactory(object):
     '''
     
     def citymap(self):
-        m = Map("City", 15, 10)
+        width = 15
+        height = 10
+        m = Map("City", width, height)
         # Locations
         l = Location('City Street')
-        for x in range(15):
-            for y in range(10):
+        for x in range(width):
+            for y in range(height):
                 m.addLocation(l.clone(), x, y)
         # Stops
         s1 = Stop("Stop 1")
@@ -39,9 +43,10 @@ class MapFactory(object):
         l.addStop(s3)
         l.addStop(s4)
         # Entities
-        p = Person("The Guy")
-        p.addPlayerAction(SayHi(p))
-        m.getLocation(6, 6).addEntity(p)
+        p = Person("The Original")
+        p.addPlayerAction(MovePersonRandom(p))
+        for _ in range(5):
+            m.getLocation(randint(0, width-1), randint(0, height-1)).addEntity(p.clone())
         t = Tram("Tram", l)
         t.addPlayerAction(MoveTramNextStop(t))
         s1.addEntity(t)

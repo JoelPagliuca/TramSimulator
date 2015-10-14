@@ -4,6 +4,7 @@ Created on 08/03/2014
 @author: Joel Pagliuca
 '''
 import random
+from copy import copy
 from TramSim.Entities import Entity
 
 NAMES = ["Joel", "Geoffrey", "Edward", "Thomas", "James", "Percy",
@@ -39,7 +40,22 @@ class Person(Entity):
     
     def clone(self):
         '''
+        creates a Person with:
+            random name
+            same Actions
+        
         @rtype: Person
         '''
         random_name = random.choice(NAMES)
-        return Person(random_name)
+        new_person = Person(random_name)
+        # add the actions
+        for a in self.getAllAIActions():
+            # TODO: probably a design pattern for this
+            copied = copy(a)
+            copied.entity = new_person
+            new_person.addAIAction(copied)
+        for a in self.getAllPlayerActions():
+            copied = copy(a)
+            copied.entity = new_person
+            new_person.addPlayerAction(copied)            
+        return new_person
