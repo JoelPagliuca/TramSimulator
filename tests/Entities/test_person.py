@@ -17,6 +17,11 @@ class TestPerson(TramSimTest):
         clone = self.person1.clone()
         self.assertIsNotNone(clone)
         self.assertIsInstance(clone, Person)
+    
+    def test_description(self):
+        self.entitymanager.placeEntity(self.person1, 1, 2)
+        d = self.person1.getDescription()
+        self.assertTrue("(1, 2)" in d)
 
 if __name__ == "__main__":
     unittest.main()

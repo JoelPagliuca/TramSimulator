@@ -116,3 +116,11 @@ class Tram(Entity):
         @rtype: list <Person>
         '''
         return self._seating.keys()
+    
+    def getDescription(self):
+        '''
+        just adds a note about the number of passengers
+        '''
+        d = super().getDescription()
+        num = len(self.getPassengers())
+        return d+" with {} passengers".format(num)

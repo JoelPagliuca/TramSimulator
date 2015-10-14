@@ -13,4 +13,4 @@ class TextInterface(UserInterface):
         '''
         prints the object to stdout
         '''
-        print(obj)
+        print(obj, end="")

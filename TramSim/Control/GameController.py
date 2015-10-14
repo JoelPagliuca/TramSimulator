@@ -43,3 +43,7 @@ class GameController(object):
             self.scheduler.tick()
             # render
             self.interface.render(self.manager.getMap())
+            for ent in self.manager.getAllEntities():
+                self.interface.render("\n")
+                self.interface.render(ent.getDescription())
+            self.interface.render("\n")

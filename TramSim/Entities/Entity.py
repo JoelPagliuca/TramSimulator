@@ -84,6 +84,18 @@ class Entity(object):
         '''
         pass
     
+    def getDescription(self):
+        '''
+        @rtype: str
+        '''
+        loc = self.EntityManager.whereIs(self)
+        if loc:
+            coords = self.EntityManager.getMap().findCoordinates(loc)
+            d = "{} is at {} ({}, {})".format(self.getName(), loc.getName(), *coords)
+        else:
+            d = "{} is nowhere to be found".format(self.getName())
+        return d
+    
     def getEntityManager(self):
         '''
         @rtype: EntityManager
