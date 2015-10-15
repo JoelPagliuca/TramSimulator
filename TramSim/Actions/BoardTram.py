@@ -11,16 +11,16 @@ class BoardTram(Action):
     '''
     def __init__(self, person, tram):
         '''
-        @param person: Person
+        @param entity: Person
         @param tram: Tram
         '''
-        self.person = person
+        self.entity = person
         self.tram = tram
 
     def canDo(self):
-        if self.person.tram is None:
-            em = self.person.EntityManager
-            ploc = em.whereIs(self.person)
+        if self.entity.tram is None:
+            em = self.entity.EntityManager
+            ploc = em.whereIs(self.entity)
             tloc = em.whereIs(self.tram)
             same_loc = (ploc == tloc)
             return same_loc and self.tram.isTakingPassengers()
@@ -29,12 +29,12 @@ class BoardTram(Action):
 
     def do(self):
         '''
-        set the person's tram to the tram
-        put the person in the tram
+        set the entity's tram to the tram
+        put the entity in the tram
         '''
-        self.person.tram = self.tram
+        self.entity.tram = self.tram
         seat = self.tram.getNextSeat()
-        self.tram.seatPassenger(self.person, seat)
+        self.tram.seatPassenger(self.entity, seat)
 
     def getDescription(self):
-        return "{} board {}".format(self.person.name, self.tram.name)
+        return "{} board {}".format(self.entity.name, self.tram.name)

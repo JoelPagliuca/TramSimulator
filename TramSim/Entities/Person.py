@@ -59,3 +59,12 @@ class Person(Entity):
             copied.entity = new_person
             new_person.addPlayerAction(copied)            
         return new_person
+    
+    def getDescription(self):
+        '''
+        just adds a note about the tram
+        '''
+        d = super().getDescription()
+        if self.tram is None:
+            return d
+        return d+" on {}".format(self.tram.name)

@@ -4,8 +4,8 @@ Created on 09/10/2015
 @author: Joel Pagliuca
 '''
 from TramSim.Worlds import Map, Location, Loop, Stop
-from TramSim.Entities import Person, Tram, Spawner, Entity
-from TramSim.Actions import MovePersonRandom, MoveTramNextStop
+from TramSim.Entities import Person, Tram
+from TramSim.Actions import MovePersonRandom, MoveTramNextStop, BoardTram, LeaveTram
 
 from random import randint
 
@@ -43,12 +43,14 @@ class MapFactory(object):
         l.addStop(s3)
         l.addStop(s4)
         # Entities
-        p = Person("The Original")
-        p.addPlayerAction(MovePersonRandom(p))
-        for _ in range(5):
-            m.getLocation(randint(0, width-1), randint(0, height-1)).addEntity(p.clone())
         t = Tram("Tram", l)
         t.addPlayerAction(MoveTramNextStop(t))
         s1.addEntity(t)
+        p = Person("The Original")
+        p.addPlayerAction(MovePersonRandom(p))
+        p.addPlayerAction(BoardTram(p, t))
+        p.addPlayerAction(LeaveTram(p))
+        for _ in range(5):
+            m.getLocation(randint(0, width-1), randint(0, height-1)).addEntity(p.clone())
         
         return m

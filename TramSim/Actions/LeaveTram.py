@@ -7,37 +7,39 @@ from TramSim.Actions.Action import Action
 
 class LeaveTram(Action):
     '''
-    Have the person leave the tram
+    Have the entity leave the tram
     '''
     
     def __init__(self, person):
         '''
-        @param person: Person
+        @param entity: Person
         '''
-        self.person = person
+        self.entity = person
 
     def canDo(self):
         '''
-        only if the person is on a tram and the doors are open
+        only if the entity is on a tram and the doors are open
         
         @rtype: Bool
         '''
-        tram = self.person.tram
+        if self.entity.tram is None:
+            return False
+        tram = self.entity.tram
         conditions = []
         conditions.append(tram is not None)
         conditions.append(tram.doorsOpen())
-        conditions.append(self.person in tram.getPassengers())
+        conditions.append(self.entity in tram.getPassengers())
         return all(conditions)
 
     def do(self):
         '''
-        remove the reference to the tram in person
-        take the person off the tram
+        remove the reference to the tram in entity
+        take the entity off the tram
         '''
-        tram = self.person.tram
-        seat = tram.whereIs(self.person)
+        tram = self.entity.tram
+        seat = tram.whereIs(self.entity)
         tram.clearSeat(seat)
-        self.person.tram = None
+        self.entity.tram = None
 
     def getDescription(self):
-        return "{} leave {}".format(self.person.name, self.person.tram.name)
+        return "{} leave {}".format(self.entity.name, self.entity.tram.name)
