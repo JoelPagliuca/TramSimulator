@@ -1,7 +1,7 @@
 '''
 Created on 15/10/2015
 
-@author: joel
+@author: Joel Pagliuca
 '''
 from TramSim.Actions.Action import Action
 

@@ -76,19 +76,19 @@ class Tram(Entity):
     def doorsOpen(self):
         '''
         '''
-        return not self.doorStatus
+        return not self._doorStatus
      
     def openDoors(self):
         '''
         opens the doors of the tram
         '''
-        self.doorStatus = False
+        self._doorStatus = False
      
     def closeDoors(self):
         '''
         closes the doors
         '''
-        self.doorStatus = True
+        self._doorStatus = True
      
     def seatPassenger(self, passenger, seat):
         '''
@@ -99,10 +99,22 @@ class Tram(Entity):
         '''
         self._seats[seat] = passenger
         self._seating[passenger] = seat
+    
+    def whereIs(self, passenger):
+        '''
+        finds seat of the passenger
+        
+        @rtype: int
+        @raise ValueError: passenger not in the tram
+        '''
+        if passenger not in self.getPassengers():
+            raise ValueError("Tram.whereIs: passenger not in tram")
+        return self._seating[passenger]
      
     def clearSeat(self, seat):
         '''
         empties the seat
+        removes the person
          
         @param seat: int
         '''
