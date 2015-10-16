@@ -21,7 +21,7 @@ class GameController(object):
         Will also construct an EntityManager, Scheduler and TextInterface
         '''
         mf = MapFactory()
-        map_ = mf.citymap()
+        map_ = mf.intencity()
         self.manager = EntityManager(map_)
         Entity.EntityManager = self.manager
         self.scheduler = Scheduler()
