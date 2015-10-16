@@ -5,7 +5,7 @@ Created on 09/10/2015
 '''
 from TramSim.Worlds import Map, Location, Loop, Stop
 from TramSim.Entities import Person, Tram
-from TramSim.Actions import MovePersonRandom, MoveTramNextStop, BoardTram, LeaveTram
+from TramSim.Actions import *
 
 from random import randint
 
@@ -45,6 +45,7 @@ class MapFactory(object):
         # Entities
         t = Tram("Tram", l)
         t.addPlayerAction(MoveTramNextStop(t))
+        t.addPlayerAction(ToggleTramDoors(t))
         s1.addEntity(t)
         p = Person("The Original")
         p.addPlayerAction(MovePersonRandom(p))
