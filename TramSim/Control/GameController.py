@@ -21,11 +21,12 @@ class GameController(object):
         Will also construct an EntityManager, Scheduler and TextInterface
         '''
         mf = MapFactory()
-        map_ = mf.intencity()
+        map_ = mf.citymap()
         self.manager = EntityManager(map_)
         Entity.EntityManager = self.manager
         self.scheduler = Scheduler()
         self.interface = Game.INTERFACE
+        self.interface.render(map_)
     
     def loop(self):
         '''
